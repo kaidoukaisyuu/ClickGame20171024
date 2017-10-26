@@ -2,17 +2,28 @@
 using System.Collections;
 
 public class tobasu : MonoBehaviour {
+   
 
-	// Use this for initialization
+    // Use this for initialization
     public void shoot(Vector3 dir)
     {
         GetComponent<Rigidbody>().AddForce(dir);
     }
     GameObject Sphere;
+    GameObject Sphere2;
+    GameObject Sphere3;
     void OnCollisionEnter(Collision other)
     {
-        this.Sphere = GameObject.Find("Sphere");
-        Destroy(Sphere);
+        if (other.gameObject.GetComponent<SphereCollider>())
+        {
+            Destroy(other.gameObject);
+        }
+        //this.Sphere = GameObject.Find("Sphere");
+        //Destroy(Sphere);
+        //this.Sphere = GameObject.Find("Sphere2");
+        //Destroy(Sphere);
+        //this.Sphere = GameObject.Find("Sphere3");
+        //Destroy(Sphere);
     }
     
 	void Start () {
